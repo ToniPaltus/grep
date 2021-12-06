@@ -177,7 +177,7 @@ def grep(params):
                         good_count += 1
                         if line_number:
                             str_with_request.append(line_counter)
-                            print(line_counter, '. ', line, sep='', end='')
+                            print(line_counter, ': ', line, sep='', end='')
                         else:
                             print(line, end='')
                 else:
@@ -185,7 +185,7 @@ def grep(params):
                         good_count += 1
                         if line_number:
                             str_with_request.append(line_counter)
-                            print(line_counter, '. ', line, sep='', end='')
+                            print(line_counter, ': ', line, sep='', end='')
                         else:
                             print(line, end='')
             else:
@@ -194,7 +194,7 @@ def grep(params):
                         good_count += 1
                         if line_number:
                             str_with_request.append(line_counter)
-                            print(line_counter, '. ', line, sep='', end='')
+                            print(line_counter, ': ', line, sep='', end='')
                         else:
                             print(line, end='')
                 else:
@@ -202,7 +202,7 @@ def grep(params):
                         good_count += 1
                         if line_number:
                             str_with_request.append(line_counter)
-                            print(line_counter, '. ', line, sep='', end='')
+                            print(line_counter, ': ', line, sep='', end='')
                         else:
                             print(line, end='')
             line_counter += 1
@@ -228,21 +228,21 @@ def grep(params):
             if context != 0 and before_context == 0 and after_context == 0:
                 if line_counter in str_context:
                     if line_number:
-                        print(line_counter, '. ', line, sep='', end='')
+                        print(line_counter, '- ', line, sep='', end='')
                     else:
                         print(line, end='')
             # before_context
             elif context == 0 and before_context != 0 and after_context == 0:
                 if line_counter in str_before_context:
                     if line_number:
-                        print(line_counter, '. ', line, sep='', end='')
+                        print(line_counter, '- ', line, sep='', end='')
                     else:
                         print(line, end='')
             # after_context
             elif context == 0 and before_context == 0 and after_context != 0:
                 if line_counter in str_after_context:
                     if line_number:
-                        print(line_counter, '. ', line, sep='', end='')
+                        print(line_counter, '- ', line, sep='', end='')
                     else:
                         print(line, end='')
             # context and before_context
@@ -250,7 +250,7 @@ def grep(params):
                 general = sorted(list(set(str_context + str_before_context)))
                 if line_counter in general:
                     if line_number:
-                        print(line_counter, '. ', line, sep='', end='')
+                        print(line_counter, '- ', line, sep='', end='')
                     else:
                         print(line, end='')
             # context and after_context
@@ -258,7 +258,7 @@ def grep(params):
                 general = sorted(list(set(str_context + str_after_context)))
                 if line_counter in general:
                     if line_number:
-                        print(line_counter, '. ', line, sep='', end='')
+                        print(line_counter, '- ', line, sep='', end='')
                     else:
                         print(line, end='')
             # before_context and after_context
@@ -266,7 +266,7 @@ def grep(params):
                 general = sorted(list(set(str_before_context + str_after_context)))
                 if line_counter in general:
                     if line_number:
-                        print(line_counter, '. ', line, sep='', end='')
+                        print(line_counter, '- ', line, sep='', end='')
                     else:
                         print(line, end='')
             # before_context and context and after_context
@@ -274,7 +274,7 @@ def grep(params):
                 general = sorted(list(set(str_before_context + str_context + str_after_context)))
                 if line_counter in general:
                     if line_number:
-                        print(line_counter, '. ', line, sep='', end='')
+                        print(line_counter, '- ', line, sep='', end='')
                     else:
                         print(line, end='')
             else:
