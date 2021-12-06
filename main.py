@@ -159,7 +159,7 @@ def grep(params):
     file_name = params['FILE']
 
     str_count = calculate_strings_in_file(file_name)
-    print('str_count', str_count)
+    print('--> str_count', str_count, end='\n\n')
 
     good_count = 0
     line_counter = 1
@@ -208,18 +208,18 @@ def grep(params):
             line_counter += 1
 
         if count:
-            print('\nStrings with request:', good_count)
-        print('str_with_request', str_with_request)
+            print('\n--> Strings with request:', good_count)
+        #print('--> str_with_request', str_with_request)
 
     # context
     str_context = get_str_nums_context(str_count, str_with_request, context)
-    print('str_context', str_context)
+    print('\n--> str_context', str_context)
 
     str_before_context = get_str_nums_before_context(str_with_request, before_context)
-    print('str_before_context', str_before_context)
+    print('--> str_before_context', str_before_context)
 
     str_after_context = get_str_nums_after_context(str_count, str_with_request, after_context)
-    print('str_after_context', str_after_context)
+    print('--> str_after_context', str_after_context, end='\n\n')
 
     with open(file_name, 'r') as file_in:
         line_counter = 1
@@ -283,7 +283,7 @@ def grep(params):
 
 def main():
     params = parse_args(sys.argv[1:0])
-    print('Params:', params, type(params))
+    print('--> Params:', params, type(params))
     grep(params)
 
 if __name__ == '__main__':
